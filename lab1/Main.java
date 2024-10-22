@@ -251,7 +251,7 @@ class Main
                 out.println("\nРезультат: " + m.toString_Array(m.deleteNegative(Arr)));
                 break;
             default:
-                outprintln("Такой задачи нет");
+                out.println("Такой задачи нет");
         }
     }
     public String toString_Array(int[] Arr)
