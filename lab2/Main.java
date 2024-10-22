@@ -39,6 +39,19 @@ public class Main
                 out.println(house);
                 break;
             case(3):
+                Employee emp1 = new Employee();
+                Employee emp2 = new Employee();
+                Employee emp3 = new Employee();
+                Departament dep = new Departament();
+                dep.setDepartament("IT");
+                emp1.setEmployee("Петров", dep);
+                emp2.setEmployee("Козлов", dep);
+                emp3.setEmployee("Сидоров", dep);
+                String boss = emp2.getName();
+                dep.setBoss(boss);
+                out.println(emp1);
+                out.println(emp2);
+                out.println(emp3);
                 break;
             case(4):
                 break;
@@ -52,4 +65,3 @@ public class Main
         }
 	}
 }
-
