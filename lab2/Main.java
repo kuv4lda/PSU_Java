@@ -1,14 +1,9 @@
 import static java.lang.System.out;
-import java.util.Scanner;
-import java.util.Random;
 
 public class Main
 {
-	public static void main(String[] args)
-	{
-	    Scanner in = new Scanner(System.in);
-        Random r = new Random();
-        Main m = new Main();
+    public static void main(String[] args)
+    {
         out.println("Tasks catalog:");
         out.println("№1.4.(№1): Время.");
         out.println("№1.5.(№2): Дом.");
@@ -79,13 +74,12 @@ public class Main
                 for (int i = 0; i < 5; i++)
                 {
                     pistol.shoot(); 
-                }
-                
-        System.out.println("Осталось патронов: " + pistol.getBullets());
+                }        
+        	System.out.println("Осталось патронов: " + pistol.getBullets());
                 break;
             default:
                 out.println("Такой задачи нет");
                 break;
         }
-	}
+    }
 }
