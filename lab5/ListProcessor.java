@@ -44,14 +44,14 @@ public class ListProcessor
         {
             if (previous == null)
             {
-                if (element != null
+                if (element != null)
                 {
                    result.add(element);
                    previous = element;
                 }
             }
             else
-                if (element == null
+                if (element == null)
                 {
                     result.add(element);
                     previous = element;
