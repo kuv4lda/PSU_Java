@@ -1,7 +1,5 @@
-import java.util.Scanner;
-import java.util.Random;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 
 public class Main
 {
@@ -108,9 +106,7 @@ public class Main
             System.out.println("Количество абитуриентов должно быть от 0 до 500.");
             return;
         }
-
         TestResultProcessor processor = new TestResultProcessor();
-
         for (int i = 0; i < numApplicants; i++)
         {
             System.out.print("Введите данные абитуриента (Фамилия Имя Баллы1 Баллы2 Баллы3): ");
@@ -143,7 +139,37 @@ public class Main
             System.out.println(applicant.getLastName() + " " + applicant.getFirstName());
         }
 
-        
+        System.out.println("Задача 5.6:");
+        String inputText = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader("input.txt")))
+        {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                sb.append(line).append("\n");
+            }
+            inputText = sb.toString().trim();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Ошибка при чтении из файла: " + e.getMessage());
+        }
+        System.out.println("Input text: " + inputText);
+        m.processText(inputText);
+
+        System.out.println("Задача 6.1:");
+        MyQueue<Integer> queue = new MyQueue<>();
+        // Заполняем очередь
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.enqueue(5);
+        System.out.println("Исходная очередь: " + queue);
+        m.printQueueReversed(queue);
+
+        System.out.println("Задача 7.:");
     }
     
     public Fraction toFraction(int a, int b)
@@ -162,6 +188,26 @@ public class Main
     {
         fraction.setDenominator(b);
         return fraction;
+    }
+
+    public <T> void printQueueReversed(MyQueue<T> queue)
+    {
+        if (queue.isEmpty())
+        {
+            System.out.println("Очередь пуста.");
+            return;
+        }
+        Stack<T> stack = new Stack<>();
+        while (!queue.isEmpty())
+        {
+            stack.push(queue.dequeue());
+        }
+        System.out.print("Очередь в обратном порядке: ");
+        while (!stack.isEmpty())
+        {
+            System.out.print(stack.pop() + " ");
+        }
+        System.out.println();
     }
 }
 
