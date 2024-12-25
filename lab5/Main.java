@@ -99,6 +99,51 @@ public class Main
         System.out.println("Исходный список: " + intProcessor);
         intProcessor.removeConsecutiveDuplicates();
         System.out.println("Список после удаления дубликатов: " + intProcessor);
+
+        System.out.println("Задача 4.6: ");
+        System.out.print("Введите количество абитуриентов: ");
+        int numApplicants = Integer.parseInt(in.nextLine());
+        if (numApplicants < 0 || numApplicants > 500)
+        {
+            System.out.println("Количество абитуриентов должно быть от 0 до 500.");
+            return;
+        }
+
+        TestResultProcessor processor = new TestResultProcessor();
+
+        for (int i = 0; i < numApplicants; i++)
+        {
+            System.out.print("Введите данные абитуриента (Фамилия Имя Баллы1 Баллы2 Баллы3): ");
+            String line = in.nextLine();
+            String[] parts = line.split(" ");
+            try
+            {
+                if (parts.length != 5)
+                {
+                    throw new IllegalArgumentException("Неверный формат ввода. Ожидается: Фамилия Имя Баллы1 Баллы2 Баллы3");
+                }
+                String lastName = parts[0];
+                String firstName = parts[1];
+                int score1 = Integer.parseInt(parts[2]);
+                int score2 = Integer.parseInt(parts[3]);
+                int score3 = Integer.parseInt(parts[4]);
+                Applicant applicant = new Applicant(lastName, firstName, score1, score2, score3);
+                processor.addApplicant(applicant);
+            }
+            catch (IllegalArgumentException e)
+            {
+                System.out.println("Ошибка ввода: " + e.getMessage());
+                i--; // Повторяем ввод для этого абитуриента
+            }
+        }
+        List<Applicant> admittedApplicants = processor.getAdmittedApplicants();
+        System.out.println("\nАбитуриенты, допущенные к сдаче экзаменов в первом потоке:");
+        for (Applicant applicant : admittedApplicants)
+        {
+            System.out.println(applicant.getLastName() + " " + applicant.getFirstName());
+        }
+
+        
     }
     
     public Fraction toFraction(int a, int b)
