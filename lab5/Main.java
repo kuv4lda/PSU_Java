@@ -92,6 +92,13 @@ public class Main
         {
             System.out.println("Ошибка при создании кота: " + e.getMessage());
         }
+
+        System.out.println("Задача 3.6:");
+        List<Integer> intList = new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 5));
+        ListProcessor intProcessor = new ListProcessor(intList);
+        System.out.println("Исходный список: " + intProcessor);
+        intProcessor.removeConsecutiveDuplicates();
+        System.out.println("Список после удаления дубликатов: " + intProcessor);
     }
     
     public Fraction toFraction(int a, int b)
