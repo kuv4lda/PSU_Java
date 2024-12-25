@@ -8,7 +8,8 @@ class Polyline
     //Конструктор, который обрабатывает входной список точек
     public Polyline(List<Point> points)
     {
-        if (points == null || points.isEmpty(){
+        if (points == null || points.isEmpty())
+        {
             throw new IllegalArgumentException("List of points cannot be null or empty.");
         }
         this.points = points.stream()
