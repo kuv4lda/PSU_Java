@@ -169,7 +169,27 @@ public class Main
         System.out.println("Исходная очередь: " + queue);
         m.printQueueReversed(queue);
 
-        System.out.println("Задача 7.:");
+        System.out.println("Задача 7.1:");
+        List<Point> points = Arrays.asList(
+                new Point(1, 2),
+                new Point(3, -4),
+                new Point(1, 2),
+                new Point(5, 6),
+                new Point(3, -4),
+                new Point(-2, -1),
+                new Point(-2,-1)
+        );
+        try
+        {
+            Polyline polyline = new Polyline(points);
+            System.out.println("Processed Polyline: " + polyline);
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Error creating polyline: " + e.getMessage());
+        }
+
+        System.out.println("Задача 7.2:");
     }
     
     public Fraction toFraction(int a, int b)
