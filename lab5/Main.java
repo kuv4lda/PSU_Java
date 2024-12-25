@@ -9,7 +9,7 @@ public class Main
         Main m = new Main();
         int a, b;
         System.out.println("Задача 1.1:");
-        Создание дроби
+        // Создание дроби
         Fraction fraction = new Fraction(0, 1);
         CacheableFraction cacheableFraction = new CacheableFraction(0, 1);
         System.out.println("Введите числитель и знаменатель:");
