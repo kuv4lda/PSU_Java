@@ -190,6 +190,15 @@ public class Main
         }
 
         System.out.println("Задача 7.2:");
+        try
+        {
+            Map<Integer, List<String>> groupedPeople = PersonGroup.groupPeopleByNumber("data.txt");
+            System.out.println(groupedPeople);
+        }
+        catch (IOException e)
+        {
+            System.err.println("Ошибка чтения файла: " + e.getMessage());
+        }
     }
     
     public Fraction toFraction(int a, int b)
