@@ -95,13 +95,27 @@ public class Main {
         }
         System.out.println("]");
         
-        System.out.println("3.2");
+        System.out.println("3.3");
+        // 1. Соединение строк
+        List<String> strings = Arrays.asList("qwerty", "asdfg", "zx");
+        String combinedString = ListReducer.reduceList(strings, (a, b) -> a + b, "");
+        System.out.println("Соединенные строки: " + combinedString);
+
+        // 2. Сумма чисел
+        List<Integer> numbers = Arrays.asList(1, -3, 7);
+        int sum = ListReducer.reduceList(numbers, Integer::sum, 0);
+        System.out.println("Сумма чисел: " + sum);
+
+        // 3. Общее количество элементов в списках
+        List<List<Integer>> listOfLists = new ArrayList<>();
+        listOfLists.add(Arrays.asList(1, 2, 3));
+        listOfLists.add(Arrays.asList(4, 5));
+        listOfLists.add(Arrays.asList(6, 7, 8, 9));
+
+        int totalSize = ListReducer.reduceList(listOfLists,(a,b) -> a + b.size(), 0);
+        System.out.println("Общее количество элементов: " + totalSize);
         
-        
-        System.out.println("3.2");
-        
-        
-        System.out.println("3.2");
+        System.out.println("3.4");
         
     }
 }
