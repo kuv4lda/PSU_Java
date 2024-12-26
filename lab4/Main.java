@@ -116,6 +116,61 @@ public class Main {
         System.out.println("Общее количество элементов: " + totalSize);
         
         System.out.println("3.4");
-        
+        // 1. Разделение чисел на положительные и отрицательные подсписки
+        List<Integer> numbers = Arrays.asList(1, -3, 7, -5, 0, 2, -8);
+        List<List<Integer>> partitionedNumbers = ListCollector.collectList(numbers,
+                () -> new ArrayList<>(),
+                (lists, num) ->
+                {
+                    if (lists.isEmpty())
+                    {
+                        lists.add(new ArrayList<>());
+                        lists.add(new ArrayList<>());
+                    }
+                    if (num > 0)
+                    {
+                        lists.get(0).add(num);
+                    }
+                    else
+                    {
+                        lists.get(1).add(num);
+                    }
+                }
+        );
+        System.out.println("Разделенные числа: " + partitionedNumbers);
+
+        // 2. Разделение строк по длине
+        List<String> strings = Arrays.asList("qwerty", "asdfg", "zx", "qw", "abc");
+        List<List<String>> groupedStrings = ListCollector.collectList(strings,
+                () -> new ArrayList<>(),
+                (lists, str) ->
+                {
+                    boolean added = false;
+                    for (List<String> list : lists)
+                    {
+                        if (!list.isEmpty() && list.get(0).length() == str.length())
+                        {
+                           list.add(str);
+                           added = true;
+                           break;
+                        }
+                    }
+                    if (!added)
+                    {
+                        List<String> newGroup = new ArrayList<>();
+                        newGroup.add(str);
+                        lists.add(newGroup);
+                    }
+                }
+        );
+        System.out.println("Сгруппированные строки по длине: " + groupedStrings);
+
+        // 3. Коллекционирование в Set (уникальные значения)
+        List<String> stringsUnique = Arrays.asList("qwerty", "asdfg", "qwerty", "qw","asdfg");
+        Set<String> uniqueStrings = ListCollector.collectSimple(stringsUnique,
+                HashSet::new,
+                Set::add
+        );
+        System.out.println("Уникальные строки: " + uniqueStrings);
     }
 }
