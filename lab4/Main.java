@@ -11,10 +11,10 @@ public class Main {
         int resultNum = num1.сравнить(num2);
         System.out.println("Результат сравнения чисел: " + resultNum);
         
-        // Пример использования с Integer
+        System.out.println("2.4");
         List<Integer> integerList = new ArrayList<>();
-        ListFiller.fillList(integerList);
-        System.out.println("Integer list: " + integerList);
+        ListFiller.fillList(integerList, index -> index);
+        System.out.println("Список: " + integerList);
 
     }
 }
