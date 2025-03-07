@@ -1,16 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        
+
         System.out.println("1.3");
         NumberComparator num1 = NumberComparator.inputNumber(in);
         NumberComparator num2 = NumberComparator.inputNumber(in);
         int resultNum = num1.сравнить(num2);
         System.out.println("Результат сравнения чисел: " + resultNum);
-        
+
         System.out.println("2.4");
         List<Integer> integerList = new ArrayList<>();
         ListFiller.fillList(integerList, index -> index);
@@ -52,17 +52,17 @@ public class Main {
 
         System.out.println("3.2");
         // 1. Фильтрация строк по длине
-        List<String> strings = Arrays.asList("qwerty", "asdfg", "zx");
+        /*List<String>*/ strings = Arrays.asList("qwerty", "asdfg", "zx");
         List<String> filteredStrings = ListFilter.filterList(strings, str -> str.length() >= 3);
         System.out.println("Строки с длиной >= 3: " + filteredStrings);
 
         // 2. Фильтрация чисел
-        List<Integer> numbers = Arrays.asList(1, -3, 7, 0, -5);
+        /*List<Integer>*/ numbers = Arrays.asList(1, -3, 7, 0, -5);
         List<Integer> filteredNumbers = ListFilter.filterList(numbers, x -> x <= 0);
         System.out.println("Отрицательные числа: " + filteredNumbers);
 
         // 3. Фильтрация массивов целых чисел
-        List<int[]> arrays = new ArrayList<>();
+        /*List<int[]>*/ arrays = new ArrayList<>();
         arrays.add(new int[]{1, 5, 2});
         arrays.add(new int[]{-3, -10, -2});
         arrays.add(new int[]{-1, 0, -5});
@@ -83,7 +83,7 @@ public class Main {
             }
             return true; // Если все элементы не положительные, то массив проходит
         });
-      
+
         System.out.print("Массивы без положительных элементов: [");
         for(int i=0;i<filteredArrays.size();i++)
         {
@@ -94,15 +94,15 @@ public class Main {
             }
         }
         System.out.println("]");
-        
+
         System.out.println("3.3");
         // 1. Соединение строк
-        List<String> strings = Arrays.asList("qwerty", "asdfg", "zx");
+        /*List<String>*/ strings = Arrays.asList("qwerty", "asdfg", "zx");
         String combinedString = ListReducer.reduceList(strings, (a, b) -> a + b, "");
         System.out.println("Соединенные строки: " + combinedString);
 
         // 2. Сумма чисел
-        List<Integer> numbers = Arrays.asList(1, -3, 7);
+        /*List<Integer>*/ numbers = Arrays.asList(1, -3, 7);
         int sum = ListReducer.reduceList(numbers, Integer::sum, 0);
         System.out.println("Сумма чисел: " + sum);
 
@@ -114,25 +114,20 @@ public class Main {
 
         int totalSize = ListReducer.reduceList(listOfLists,(a,b) -> a + b.size(), 0);
         System.out.println("Общее количество элементов: " + totalSize);
-        
+
         System.out.println("3.4");
         // 1. Разделение чисел на положительные и отрицательные подсписки
-        List<Integer> numbers = Arrays.asList(1, -3, 7, -5, 0, 2, -8);
-        List<List<Integer>> partitionedNumbers = ListCollector.collectList(numbers,
-                () -> new ArrayList<>(),
-                (lists, num) ->
-                {
-                    if (lists.isEmpty())
-                    {
+        /*List<Integer>*/ numbers = Arrays.asList(1, -3, 7, -5, 0, 2, -8);
+        List<List<Integer>> partitionedNumbers = ListCollector.collect(numbers,
+                ArrayList::new,
+                (lists, num) -> {
+                    if (lists.isEmpty()) {
                         lists.add(new ArrayList<>());
                         lists.add(new ArrayList<>());
                     }
-                    if (num > 0)
-                    {
+                    if (num > 0) {
                         lists.get(0).add(num);
-                    }
-                    else
-                    {
+                    } else if (num < 0) {
                         lists.get(1).add(num);
                     }
                 }
@@ -140,23 +135,19 @@ public class Main {
         System.out.println("Разделенные числа: " + partitionedNumbers);
 
         // 2. Разделение строк по длине
-        List<String> strings = Arrays.asList("qwerty", "asdfg", "zx", "qw", "abc");
-        List<List<String>> groupedStrings = ListCollector.collectList(strings,
-                () -> new ArrayList<>(),
-                (lists, str) ->
-                {
+        /*List<String>*/ strings = Arrays.asList("qwerty", "asdfg", "zx", "qw", "abc");
+        List<List<String>> groupedStrings = ListCollector.collect(strings,
+                ArrayList::new,
+                (lists, str) -> {
                     boolean added = false;
-                    for (List<String> list : lists)
-                    {
-                        if (!list.isEmpty() && list.get(0).length() == str.length())
-                        {
-                           list.add(str);
-                           added = true;
-                           break;
+                    for (List<String> list : lists) {
+                        if (!list.isEmpty() && list.get(0).length() == str.length()) {
+                            list.add(str);
+                            added = true;
+                            break;
                         }
                     }
-                    if (!added)
-                    {
+                    if (!added) {
                         List<String> newGroup = new ArrayList<>();
                         newGroup.add(str);
                         lists.add(newGroup);
@@ -166,8 +157,8 @@ public class Main {
         System.out.println("Сгруппированные строки по длине: " + groupedStrings);
 
         // 3. Коллекционирование в Set (уникальные значения)
-        List<String> stringsUnique = Arrays.asList("qwerty", "asdfg", "qwerty", "qw","asdfg");
-        Set<String> uniqueStrings = ListCollector.collectSimple(stringsUnique,
+        List<String> stringsUnique = Arrays.asList("qwerty", "asdfg", "qwerty", "qw", "asdfg");
+        Set<String> uniqueStrings = ListCollector.collect(stringsUnique,
                 HashSet::new,
                 Set::add
         );
