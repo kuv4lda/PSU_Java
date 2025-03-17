@@ -56,3 +56,5 @@ class NumberComparator implements Сравнимое<NumberComparator>
         return "Число: " + number;
     }
 }
+
+// Реализует интерфейс Сравнимое.java

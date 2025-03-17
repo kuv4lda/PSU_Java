@@ -5,17 +5,22 @@ public class Main {
     {
         Scanner in = new Scanner(System.in);
 
+	//1.3: Сравнение двух объектов.
+	//Сравнимое (Интерфейс Сравнимое.java и класс NumberComparator.java)
         System.out.println("1.3");
         NumberComparator num1 = NumberComparator.inputNumber(in);
         NumberComparator num2 = NumberComparator.inputNumber(in);
         int resultNum = num1.сравнить(num2);
         System.out.println("Результат сравнения чисел: " + resultNum);
-
+	
+	//2.4: Заполнение списка числами от 1 до 100 через.
+	//Заполнение списка (Класс ListFiller.java и интерфейс ValueGenerator.java)
         System.out.println("2.4");
         List<Integer> integerList = new ArrayList<>();
         ListFiller.fillList(integerList, index -> index);
         System.out.println("Список: " + integerList);
 
+	//3.1: Преобразование списка (Класс ListTransformer.java и интерфейс Function.java)
         System.out.println("3.1");
         // 1. Преобразование строк в длины
         List<String> strings = Arrays.asList("qwerty", "asdfg", "zx");
@@ -50,6 +55,7 @@ public class Main {
         });
         System.out.println("Максимальные значения: " + maxValues);
 
+	//3.2: Фильтрация списка (Класс ListFilter.java и интерфейс Predicate.java)
         System.out.println("3.2");
         // 1. Фильтрация строк по длине
         /*List<String>*/ strings = Arrays.asList("qwerty", "asdfg", "zx");
@@ -95,6 +101,7 @@ public class Main {
         }
         System.out.println("]");
 
+	//3.3. Свёртка списка (Класс ListReducer.java и интерфейс ReducerWithInitial.java)
         System.out.println("3.3");
         // 1. Соединение строк
         /*List<String>*/ strings = Arrays.asList("qwerty", "asdfg", "zx");
@@ -115,6 +122,7 @@ public class Main {
         int totalSize = ListReducer.reduceList(listOfLists,(a,b) -> a + b.size(), 0);
         System.out.println("Общее количество элементов: " + totalSize);
 
+	//Коллекционирование (Класс ListCollector.java и интерфейсы Supplier, BiConsumer)
         System.out.println("3.4");
         // 1. Разделение чисел на положительные и отрицательные подсписки
         /*List<Integer>*/ numbers = Arrays.asList(1, -3, 7, -5, 0, 2, -8);

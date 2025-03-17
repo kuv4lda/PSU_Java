@@ -19,3 +19,5 @@ public class ListCollector {
         return collection;
     }
 }
+
+// Сбор эл-тов в разные списки по условию

@@ -21,3 +21,5 @@ public class ListTransformer
         return result;
     }
 }
+
+// Преобразует элементы списка в новый список

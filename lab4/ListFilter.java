@@ -24,3 +24,5 @@ public class ListFilter
         return result;
     }
 }
+
+// Фильтрует список по условию
