@@ -1,3 +1,5 @@
+//Реализация очереди на основе связанного списка 
+
 import java.util.*;
 
 public class MyQueue<T>

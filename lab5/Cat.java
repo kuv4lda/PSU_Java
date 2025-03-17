@@ -1,3 +1,5 @@
+// Сущность кота с именем и счётчиком мяуканий 
+
 public class Cat implements Meowable
 {
     private String name; // Имя

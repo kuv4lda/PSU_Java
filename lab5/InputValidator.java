@@ -1,3 +1,5 @@
+//Проверяет, что текст не null и не пуст
+
 public class InputValidator
 {
     public static void validateText(String text)

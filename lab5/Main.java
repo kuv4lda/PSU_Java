@@ -8,6 +8,8 @@ public class Main
         Scanner in = new Scanner(System.in);
         Main m = new Main();
         int a, b;
+
+	// Fraction.java; CacheableFraction.java
         System.out.println("Задача 1.1:");
         // Создание дроби
         Fraction fraction = new Fraction(0, 1);
@@ -63,14 +65,15 @@ public class Main
         {
             System.out.println("Ошибка при создании/изменении дроби: " + e.getMessage());
         }
-        
+
+	// Cat.java; Meowable.java; Meower.java
         System.out.println("Задача 2.1:");
         try
         {
             // Создание кота
             Cat cat = new Cat("Барсик");
             System.out.println(cat);
-            
+
             // Вызов метода makeAllMeow с одним котом
             List<Cat> cats = Arrays.asList(cat);
             Meower.makeAllMeow(cats);
@@ -79,7 +82,7 @@ public class Main
             //Создание 2-го кота
             Cat cat2 = new Cat("Мурзик");
             System.out.println(cat2);
-            
+
             // Вызов метода makeAllMeow с двумя котами
             List<Cat> cats2 = Arrays.asList(cat,cat2);
             Meower.makeAllMeow(cats2);
@@ -91,6 +94,7 @@ public class Main
             System.out.println("Ошибка при создании кота: " + e.getMessage());
         }
 
+	// ListProcessor.java
         System.out.println("Задача 3.6:");
         List<Integer> intList = new ArrayList<>(Arrays.asList(1, 1, 2, 3, 3, 3, 4, 5, 5));
         ListProcessor intProcessor = new ListProcessor(intList);
@@ -98,9 +102,11 @@ public class Main
         intProcessor.removeConsecutiveDuplicates();
         System.out.println("Список после удаления дубликатов: " + intProcessor);
 
+	// Applicant.java; TestResultProcessor.java
         System.out.println("Задача 4.6: ");
         System.out.print("Введите количество абитуриентов: ");
-        int numApplicants = Integer.parseInt(in.nextLine());
+        int numApplicants = in.nextInt();
+        in.nextLine();
         if (numApplicants < 0 || numApplicants > 500)
         {
             System.out.println("Количество абитуриентов должно быть от 0 до 500.");
@@ -139,6 +145,7 @@ public class Main
             System.out.println(applicant.getLastName() + " " + applicant.getFirstName());
         }
 
+	// TextProcessor.java; InputValidator.java
         System.out.println("Задача 5.6:");
         String inputText = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("input.txt")))
@@ -156,8 +163,11 @@ public class Main
             System.out.println("Ошибка при чтении из файла: " + e.getMessage());
         }
         System.out.println("Input text: " + inputText);
-        m.processText(inputText);
+        TextProcessor processor1 = new TextProcessor(inputText);
+        Set<Character> symbols = processor1.getEvenWordSymbols();
+        System.out.println("Characters in even-numbered words: " + symbols);
 
+	// MyQueue.java
         System.out.println("Задача 6.1:");
         MyQueue<Integer> queue = new MyQueue<>();
         // Заполняем очередь
@@ -169,6 +179,7 @@ public class Main
         System.out.println("Исходная очередь: " + queue);
         m.printQueueReversed(queue);
 
+	// Point.java; Polyline.java
         System.out.println("Задача 7.1:");
         List<Point> points = Arrays.asList(
                 new Point(1, 2),
@@ -189,6 +200,7 @@ public class Main
             System.out.println("Error creating polyline: " + e.getMessage());
         }
 
+	// Person.java; PersonGroup.java
         System.out.println("Задача 7.2:");
         try
         {
@@ -200,19 +212,19 @@ public class Main
             System.err.println("Ошибка чтения файла: " + e.getMessage());
         }
     }
-    
+
     public Fraction toFraction(int a, int b)
     {
         Fraction fraction = new Fraction(a, b);
         return fraction;
     }
-    
+
     public Fraction toFractionNumerator(Fraction fraction, int a)
     {
         fraction.setNumerator(a);
         return fraction;
     }
-    
+
     public Fraction toFractionDenominator(Fraction fraction, int b)
     {
         fraction.setDenominator(b);
@@ -239,4 +251,3 @@ public class Main
         System.out.println();
     }
 }
-

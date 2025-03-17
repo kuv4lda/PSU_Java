@@ -1,3 +1,5 @@
+// ОБрабатывает список целых чисел, удаляя дубликаты, идущие подряд
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,3 +1,5 @@
+//Хранение данных человека (имя и номер)
+
 public class Person
 {
     private String name;

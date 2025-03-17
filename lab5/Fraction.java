@@ -1,3 +1,5 @@
+//Реализация дроби с целым числителем и знаменателем
+
 import java.util.Objects;
 
 interface IFraction

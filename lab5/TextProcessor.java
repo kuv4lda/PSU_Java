@@ -1,3 +1,5 @@
+//Обработка текста для извлечения символов из чётных слов
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,6 +20,7 @@ public class TextProcessor {
         this.text = text;
     }
 
+//Возвращает уникальные символы из слов с чётными индексами
     public Set<Character> getEvenWordSymbols() {
         Set<Character> symbols = new TreeSet<>();
         String[] words = text.split("\\s+");

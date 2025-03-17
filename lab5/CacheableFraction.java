@@ -1,3 +1,5 @@
+// Кэширует результат toDouble() из Fraction и сбрасывает его при изменении дроби
+
 public class CacheableFraction extends Fraction
 {
     private Double cachedDoubleValue; 

@@ -1,3 +1,5 @@
+// Хранения данных абитуриента; Проверяет, допущен ли абитуриент
+
 public class Applicant
 {
     private String lastName;

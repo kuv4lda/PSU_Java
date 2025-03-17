@@ -1,3 +1,5 @@
+//Управление списком абитуриентов и их фильтрация
+
 import java.util.ArrayList;
 import java.util.List;
 

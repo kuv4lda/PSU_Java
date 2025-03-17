@@ -1,3 +1,5 @@
+//Хранение координат точки на плоскости
+
 import java.util.*;
 
 class Point

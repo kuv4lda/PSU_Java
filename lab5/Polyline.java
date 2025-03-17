@@ -1,3 +1,5 @@
+//Создание ломаной линии из списка точек
+
 import java.util.*;
 import java.util.stream.Collectors;
 

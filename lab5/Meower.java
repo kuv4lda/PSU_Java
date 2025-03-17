@@ -1,3 +1,5 @@
+// Вызывает метод meow() для списка объектов
+
 import java.util.List;
 
 public class Meower
