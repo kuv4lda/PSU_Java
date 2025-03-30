@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class NumberComparator implements Сравнимое<NumberComparator>
+class NumberComparator implements Comparable<NumberComparator>
 {
     private int number;
 
@@ -45,7 +45,7 @@ class NumberComparator implements Сравнимое<NumberComparator>
     }
 
     @Override
-    public int сравнить(NumberComparator other)
+    public int compare(NumberComparator other)
     {
         return Integer.compare(this.number, other.number);
     }
