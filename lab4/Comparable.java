@@ -1,6 +1,6 @@
 interface Comparable<T>
 {
-    int conpare(T other);
+    int compare(T other);
 }
 
 // Возвращает:
