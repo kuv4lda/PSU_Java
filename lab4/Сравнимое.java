@@ -1,6 +1,6 @@
-interface Сравнимое<T>
+interface Comparable<T>
 {
-    int сравнить(T other);
+    int conpare(T other);
 }
 
 // Возвращает:
