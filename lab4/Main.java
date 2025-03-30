@@ -10,7 +10,7 @@ public class Main {
         System.out.println("1.3");
         NumberComparator num1 = NumberComparator.inputNumber(in);
         NumberComparator num2 = NumberComparator.inputNumber(in);
-        int resultNum = num1.сравнить(num2);
+        int resultNum = num1.compare(num2);
         System.out.println("Результат сравнения чисел: " + resultNum);
 	
 	//2.4: Заполнение списка числами от 1 до 100 через.
